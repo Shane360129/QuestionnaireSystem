@@ -2,8 +2,6 @@ package com.example.quest0618.service.ifs;
 
 import com.example.quest0618.vo.*;
 
-import java.util.List;
-
 public interface TitleQuestionSerivice {
 
     public TitleQuestionResponse addTitleQuestion(AddTitleQuestionRequest addTitleQuestionRequest);
@@ -14,5 +12,5 @@ public interface TitleQuestionSerivice {
 
     public TitleQuestionResponse deleteTitleQuestion(DeleteTitleQuestionRequest deleteTitleQuestionRequest);
 
-    public TitleQuestionResponse findAllQuestion(FindAllQuestionRequest findAllQuestionRequest);
+    public TitleQuestionResponse findAllQuestion();
 }

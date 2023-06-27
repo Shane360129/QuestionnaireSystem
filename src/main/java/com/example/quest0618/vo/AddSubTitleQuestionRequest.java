@@ -2,17 +2,17 @@ package com.example.quest0618.vo;
 
 public class AddSubTitleQuestionRequest {
 
-    private int subTitleId;
+    private int titleId;
     private String subTitleQuestion;
     private int sort;
     private boolean mustFill;
 
-    public int getSubTitleId() {
-        return subTitleId;
+    public int getTitleId() {
+        return titleId;
     }
 
-    public void setSubTitleId(int subTitleId) {
-        this.subTitleId = subTitleId;
+    public void setTitleId(int titleId) {
+        this.titleId = titleId;
     }
 
     public String getSubTitleQuestion() {

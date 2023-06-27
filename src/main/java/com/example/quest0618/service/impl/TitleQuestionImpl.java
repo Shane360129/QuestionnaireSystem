@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,7 +84,7 @@ public class TitleQuestionImpl implements TitleQuestionSerivice {
     }
 
     @Override
-    public TitleQuestionResponse findAllQuestion(FindAllQuestionRequest findAllQuestionRequest) {
+    public TitleQuestionResponse findAllQuestion() {
         List<TitleQuestion> allQuestion = titleQuestionDao.findAll();
         return new TitleQuestionResponse(RtnCode.FIND_SUCCESS.getMessage(), allQuestion);
     }

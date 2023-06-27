@@ -22,17 +22,17 @@ public class SubTitleQuestionImpl implements SubTitleQuestionSerivice {
     public SubTitleQuestionResponse addSubTitleQuestion(AddSubTitleQuestionRequest addSubTitleQuestionRequest) {
 
         SubTitleQuestion subTitleQuestion = new SubTitleQuestion();
-        List<SubTitleQuestion> subTitle = subTitleQuestionDao.findAllById(Collections.singleton(addSubTitleQuestionRequest.getSubTitleId()));
+        List<SubTitleQuestion> subTitle = subTitleQuestionDao.findAllById(Collections.singleton(addSubTitleQuestionRequest.getTitleId()));
         for (SubTitleQuestion item : subTitle) {
             if (item.getSort() == addSubTitleQuestionRequest.getSort()) {
                 return new SubTitleQuestionResponse(RtnCode.SORT_CANNOT_REPEAT.getMessage());
             }
         }
         if (addSubTitleQuestionRequest.getSubTitleQuestion().isEmpty()
-                || addSubTitleQuestionRequest.getSubTitleId() == 0) {
+                || addSubTitleQuestionRequest.getTitleId() == 0) {
             return new SubTitleQuestionResponse(RtnCode.CANNOT_EMPTY.getMessage());
         }
-        subTitleQuestion.setTitleId(addSubTitleQuestionRequest.getSubTitleId());
+        subTitleQuestion.setTitleId(addSubTitleQuestionRequest.getTitleId());
         subTitleQuestion.setSubTitleQuestion(addSubTitleQuestionRequest.getSubTitleQuestion());
         subTitleQuestion.setSort(addSubTitleQuestionRequest.getSort());
         subTitleQuestion.setMustFill(addSubTitleQuestionRequest.isMustFill());

@@ -4,10 +4,7 @@ package com.example.quest0618.controller;
 import com.example.quest0618.service.ifs.TitleQuestionSerivice;
 import com.example.quest0618.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,8 +35,8 @@ public class TitleQuestionController {
         return titleQuestionSerivice.deleteTitleQuestion(deleteTitleQuestionRequest);
     }
 
-    @PostMapping(value = "findAllQuestion")
-    public TitleQuestionResponse findAllQuestion(@RequestBody FindAllQuestionRequest findAllQuestionRequest){
-        return titleQuestionSerivice.findAllQuestion(findAllQuestionRequest);
+    @GetMapping(value = "findAllQuestion")
+    public TitleQuestionResponse findAllQuestion(){
+        return titleQuestionSerivice.findAllQuestion();
     }
 }

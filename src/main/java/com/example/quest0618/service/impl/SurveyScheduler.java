@@ -18,7 +18,7 @@ public class SurveyScheduler {
     private TitleQuestionDao titleQuestionDao;
 
     // 指定定時任務的執行間隔和其他屬性
-    @Scheduled(cron = "* * 1 * * *") // 每十秒執行一次
+    @Scheduled(cron = "0 */10 * ? * *") // 每十秒執行一次
     public void checkAndOpenSurveys() {
         // 檢查並開放問券的程式碼
         List<TitleQuestion> surveys = titleQuestionDao.findByStatusOrderByStartTime(false);
