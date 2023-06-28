@@ -1,16 +1,16 @@
 package com.example.quest0618.vo;
 
-public class FindAnswerTypeRequest {
+public class GetAllQuestionsRequest {
 
-    private int answerTypeId;
+    private int titleId;
     private int subTitleId;
 
-    public int getAnswerTypeId() {
-        return answerTypeId;
+    public int getTitleId() {
+        return titleId;
     }
 
-    public void setAnswerTypeId(int answerTypeId) {
-        this.answerTypeId = answerTypeId;
+    public void setTitleId(int titleId) {
+        this.titleId = titleId;
     }
 
     public int getSubTitleId() {

@@ -41,12 +41,12 @@ public class TitleQuestionImpl implements TitleQuestionSerivice {
     }
 
     @Override
-    public TitleQuestionResponse findByTitleName(FindTitleByNameRequest findTitleByNameRequest) {
-        List<TitleQuestion> titleQuestions = titleQuestionDao.byTitleLike(findTitleByNameRequest.getTitleName());
+    public TitleQuestionResponse findByTitleId(FindTitleByNameRequest findTitleByNameRequest) {
+        Optional<TitleQuestion> titleQuestions = titleQuestionDao.findById(findTitleByNameRequest.getTitleId());
         if (titleQuestions.isEmpty()) {
             return new TitleQuestionResponse(RtnCode.TITLE_NOT_FOUND.getMessage());
         }
-        return new TitleQuestionResponse(titleQuestions);
+        return new TitleQuestionResponse(RtnCode.FIND_SUCCESS.getMessage(),titleQuestions.get());
     }
 
     @Override

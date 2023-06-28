@@ -10,8 +10,14 @@ public class TitleQuestionResponse {
     private TitleQuestion titleQuestion;
     private List<TitleQuestion> titleQuestionList;
 
+
     public TitleQuestionResponse(List<TitleQuestion> titleQuestionList) {
         this.titleQuestionList = titleQuestionList;
+    }
+
+    public TitleQuestionResponse(String message, TitleQuestion titleQuestion) {
+        this.message = message;
+        this.titleQuestion = titleQuestion;
     }
 
     public TitleQuestionResponse(String message, List<TitleQuestion> titleQuestionList) {

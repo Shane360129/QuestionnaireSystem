@@ -6,7 +6,7 @@ public interface TitleQuestionSerivice {
 
     public TitleQuestionResponse addTitleQuestion(AddTitleQuestionRequest addTitleQuestionRequest);
 
-    public TitleQuestionResponse findByTitleName(FindTitleByNameRequest findTitleByNameRequest);
+    public TitleQuestionResponse findByTitleId(FindTitleByNameRequest findTitleByNameRequest);
 
     public TitleQuestionResponse editTitleQuestion(EditTitleQuestionRequest editTitleQuestionRequest);
 

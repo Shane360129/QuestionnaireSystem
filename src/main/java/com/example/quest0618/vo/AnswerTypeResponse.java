@@ -9,14 +9,18 @@ public class AnswerTypeResponse {
 
     private int answerTypeId;
     private String message;
-    private Optional<AnswerType> answerType;
-    private List<StatisticsResponse> statisticsResponse;
+    private List<AnswerType> answerType;
 
     public AnswerTypeResponse(String message) {
         this.message = message;
     }
 
-    public AnswerTypeResponse(Optional<AnswerType> answerType) {
+    public AnswerTypeResponse(List<AnswerType> answerType) {
+        this.answerType = answerType;
+    }
+
+    public AnswerTypeResponse(String message, List<AnswerType> answerType) {
+        this.message = message;
         this.answerType = answerType;
     }
 
@@ -36,11 +40,12 @@ public class AnswerTypeResponse {
         this.message = message;
     }
 
-    public Optional<AnswerType> getAnswerType() {
+    public List<AnswerType> getAnswerType() {
         return answerType;
     }
 
-    public void setAnswerType(Optional<AnswerType> answerType) {
+    public void setAnswerType(List<AnswerType> answerType) {
         this.answerType = answerType;
     }
+
 }

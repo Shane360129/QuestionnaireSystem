@@ -6,8 +6,6 @@ import com.example.quest0618.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @CrossOrigin
 @RestController
 public class TitleQuestionController {
@@ -22,10 +20,10 @@ public class TitleQuestionController {
 
     @PostMapping(value = "findTitle")
     public TitleQuestionResponse titleQuestionResponse(@RequestBody FindTitleByNameRequest findTitleByNameRequest){
-        return titleQuestionSerivice.findByTitleName(findTitleByNameRequest);
+        return titleQuestionSerivice.findByTitleId(findTitleByNameRequest);
     }
 
-    @PostMapping(value = "editTitleQuestion")
+        @PostMapping(value = "editTitleQuestion")
     public TitleQuestionResponse editTitleQuestion(@RequestBody EditTitleQuestionRequest editTitleQuestionRequest){
         return titleQuestionSerivice.editTitleQuestion(editTitleQuestionRequest);
     }

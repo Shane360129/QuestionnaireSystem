@@ -12,5 +12,5 @@ public interface AnswerTypeService {
 
     public AnswerTypeResponse findAnswerType(FindAnswerTypeRequest findAnswerTypeRequest);
 
-
+    public AnswerTypeResponse getAllQuestions(GetAllQuestionsRequest getAllQuestionsRequest);
 }

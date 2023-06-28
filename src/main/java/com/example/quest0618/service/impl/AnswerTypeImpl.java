@@ -2,12 +2,18 @@ package com.example.quest0618.service.impl;
 
 import com.example.quest0618.constants.RtnCode;
 import com.example.quest0618.entity.AnswerType;
+import com.example.quest0618.entity.SubTitleQuestion;
+import com.example.quest0618.entity.TitleQuestion;
 import com.example.quest0618.repository.AnswerTypeDao;
+import com.example.quest0618.repository.SubTitleQuestionDao;
+import com.example.quest0618.repository.TitleQuestionDao;
 import com.example.quest0618.service.ifs.AnswerTypeService;
 import com.example.quest0618.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +21,11 @@ public class AnswerTypeImpl implements AnswerTypeService {
 
     @Autowired
     AnswerTypeDao answerTypeDao;
+    @Autowired
+    TitleQuestionDao titleQuestionDao;
+    @Autowired
+    SubTitleQuestionDao subTitleQuestionDao;
+
     @Override
     public AnswerTypeResponse addAnswerType(AddAnswerTypeResquest addAnswerTypeResquest) {
         AnswerType answerType = new AnswerType();
@@ -48,8 +59,21 @@ public class AnswerTypeImpl implements AnswerTypeService {
     @Override
     public AnswerTypeResponse findAnswerType(FindAnswerTypeRequest findAnswerTypeRequest) {
 
-        Optional<AnswerType> answerType = answerTypeDao.findById(findAnswerTypeRequest.getAnswerTypeId());
+        List<AnswerType> answerType = answerTypeDao.findAllBySubtitleId(findAnswerTypeRequest.getSubTitleId());
         return new AnswerTypeResponse(answerType);
+    }
+
+    @Override
+    public AnswerTypeResponse getAllQuestions(GetAllQuestionsRequest getAllQuestionsRequest) {
+
+        List<SubTitleQuestion> allQuestions = subTitleQuestionDao.findAllByTitleId(getAllQuestionsRequest.getTitleId());
+        List<Integer> subTitleIdList = new ArrayList<>();
+        SubTitleQuestion subTitleQuestion = new SubTitleQuestion();
+        for(SubTitleQuestion item : allQuestions){
+            subTitleIdList.add(item.getSubtitleId());
+        }
+            List<AnswerType> allAnswerTypeList = answerTypeDao.findBySubtitleIdIn(subTitleIdList);
+        return new AnswerTypeResponse(RtnCode.FIND_SUCCESS.getMessage(), allAnswerTypeList);
     }
 
 
